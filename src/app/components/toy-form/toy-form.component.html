@@ -1,0 +1,25 @@
+<h2>{{ isEditMode ? 'Edit Toy' : 'Add a Toy' }}</h2>
+<form (ngSubmit)="saveToy()" class="toy-form">
+  <table>
+    <tr>
+      <td><label for="name">Name:</label></td>
+      <td><input id="name" [(ngModel)]="toy.name" name="name" required /></td>
+    </tr>
+    <tr>
+      <td><label for="type">Type:</label></td>
+      <td><input id="type" [(ngModel)]="toy.type" name="type" required /></td>
+    </tr>
+    <tr>
+      <td><label for="price">Price:</label></td>
+      <td><input id="price" type="number" [(ngModel)]="toy.price" name="price" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <button type="submit" class="save-button">{{ isEditMode ? 'Update Toy' : 'Save Toy' }}</button>
+      </td>
+    </tr>
+  </table>
+</form>
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>

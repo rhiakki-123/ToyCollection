@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+  <div class="container">
+  <button class="toggle-button" (click)="toggleSidebar()">☰ Menu</button>
+  <nav class="sidebar" [class.hidden]="isSidebarHidden">
+    <ul>
+      <li><a routerLink="/signup" routerLinkActive="active" ariaCurrentWhenActive="page">Sign Up</a></li>
+      <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
+      <li><a routerLink="/profile" routerLinkActive="active" ariaCurrentWhenActive="page">Profile</a></li>
+      <li><a routerLink="/toys" routerLinkActive="active" ariaCurrentWhenActive="page">Toys</a></li>
+      <li><a routerLink="/add-toy" routerLinkActive="active" ariaCurrentWhenActive="page">Add Toy</a></li>
+      <li><a routerLink="/inventory" routerLinkActive="active" ariaCurrentWhenActive="page">Inventory</a></li>
+      <li><a routerLink="/order-create" routerLinkActive="active" ariaCurrentWhenActive="page">Create Order</a></li>
+      <!-- <li><a routerLink="/order-details" routerLinkActive="active" ariaCurrentWhenActive="page">Order details</a></li> -->
+      <!-- <li><a routerLink="/order-update" routerLinkActive="active" ariaCurrentWhenActive="page">Update Order</a></li> -->
+      <li><a routerLink="/order-history" routerLinkActive="active" ariaCurrentWhenActive="page">Order History</a></li>
+      <li><a routerLink="/logout" routerLinkActive="active" ariaCurrentWhenActive="page">logout</a></li>
+      
+    </ul>
+  </nav>
+  <div class="content" [class.expanded]="isSidebarHidden">
+    <h1>Hello, {{ title }}</h1>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+  </body>
+</html>
+

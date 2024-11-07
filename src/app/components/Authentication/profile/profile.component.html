@@ -1,0 +1,8 @@
+<div class="profile-container">
+  <h2>User Profile</h2>
+  <div *ngIf="user" class="user-info">
+    <p><strong style="color: rgb(50, 172, 202);">Username: </strong><strong style="color: rgb(22, 41, 216);">{{ user.username }}</strong> </p>
+    <p><strong style="color: rgb(50, 172, 202);">Role: </strong><strong style="color: rgb(22, 41, 216);">{{ user.Role }}</strong></p>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>

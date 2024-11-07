@@ -1,0 +1,30 @@
+.toy-details-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 10px 0;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .error-message {
+    color: #f44336;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

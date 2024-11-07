@@ -1,0 +1,47 @@
+<div class="order-create-container">
+  <h2>Create Order</h2>
+  <form (ngSubmit)="createOrder()" #orderForm="ngForm">
+    
+    <!-- User ID Input -->
+    <div class="form-group">
+      <!-- Note: Ensure consistency between frontend and backend naming conventions -->
+      <label for="userId">User ID:</label>
+      <input id="user_id" type="number" aria-label="User ID" [(ngModel)]="order.user_id" name="userId" required>
+    </div>
+    
+    <!-- Toy ID Input -->
+    <div class="form-group">
+      <!-- Critical: Match frontend input names with backend expectations -->
+      <label for="toy_Id">Toy ID:</label>
+      <input id="toy_Id" type="number" [(ngModel)]="newItem.toy_Id" name="toyId" required>
+    </div>
+    
+    <!-- Quantity Input -->
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" type="number" [(ngModel)]="newItem.quantity" name="quantity" required>
+    </div>
+    
+    <!-- Add Item Button -->
+    <button type="button" (click)="addItem()">Add Item</button>
+    
+    <!-- Items List -->
+    <div class="form-group">
+      <label>Items:</label>
+      <ul>
+        <li *ngFor="let item of order.items; let i = index">
+          Toy ID: {{ item.toy_Id }}, Quantity: {{ item.quantity }}
+          <button type="button" class="remove-item" (click)="removeItem(i)">
+            Remove
+          </button>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit">Create Order</button>
+    
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div>

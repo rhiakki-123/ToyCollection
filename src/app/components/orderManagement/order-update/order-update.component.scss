@@ -1,0 +1,85 @@
+/* order-update.component.scss */
+.order-update-card {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+.mat-card-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.order-update-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.button-group button {
+  min-width: 120px;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #2ecc71;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Loading Spinner Styling */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  mat-spinner {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #2980b9;
+    font-weight: bold;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .order-update-card {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}

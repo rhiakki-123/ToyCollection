@@ -1,0 +1,42 @@
+<div class="order-history-container">
+  <div *ngIf="!errorMessage; else errorTemplate">
+    <div *ngIf="orders.length > 0; else noOrders">
+      <h2 class="order-history-title">Order History</h2>
+      <ul class="order-list">
+        <li class="order-item" *ngFor="let order of orders">
+          <div class="order-details">
+            <p><strong>Order ID:</strong> {{ order.ID }}</p>
+            <p><strong>Status:</strong> <span class="order-status {{ getStatusClass(order.status) }}">{{ order.status }}</span></p>
+            <p><strong>Total Cost:</strong> ${{ order.total_cost }}</p>
+          </div>
+          <div class="order-items">
+            <p><strong>Items:</strong></p>
+            <ul class="item-list">
+              <li class="item" *ngFor="let item of order.order_items">
+                Toy ID: {{ item.toy_id }}, Quantity: {{ item.quantity }}, Price: ${{ item.price }}
+              </li>
+            </ul>
+          </div>
+          <!-- Update Order Button -->
+          <a [routerLink]="['/order-update', order.ID]" class="update-order-button">Update Order</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Add a Loading State -->
+    <div *ngIf="loading" class="loading-spinner">
+      <p>Loading your orders...</p>
+    </div>
+  </div>
+  
+  <!-- Error Template -->
+  <ng-template #errorTemplate>
+    <div class="error-message">{{ errorMessage }}</div>
+  </ng-template>
+  
+  <!-- No Orders Template -->
+  <ng-template #noOrders>
+    <div class="no-orders-message">
+      <p>No orders found.</p>
+    </div>
+  </ng-template>
+</div>

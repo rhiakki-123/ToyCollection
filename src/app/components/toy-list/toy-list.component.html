@@ -1,0 +1,30 @@
+<div class="toy-list-container">
+  <h2>Toy Inventory</h2>
+  <div class="table-responsive">
+    <table class="toy-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let toy of toys">
+          <td>{{ toy.name }}</td>
+          <td>{{ toy.type }}</td>
+          <td>${{ toy.price }}</td>
+          <td class="action-buttons">
+            <button class="btn edit-button" (click)="editToy(toy.id)">Edit</button>
+            <button class="btn delete-button" (click)="deleteToy(toy.id)">Delete</button>
+            <button class="btn details-button" (click)="detailsToy(toy.id)">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="toys.length === 0" class="no-toys-message">
+      No toys available.
+    </div>
+  </div>
+</div>

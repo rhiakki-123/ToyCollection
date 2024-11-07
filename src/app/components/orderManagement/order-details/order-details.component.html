@@ -1,0 +1,47 @@
+<!-- order-details.component.html -->
+<mat-card class="order-details-card" *ngIf="order; else loadingTemplate">
+  <mat-card-header>
+    <mat-card-title>Order Details</mat-card-title>
+    <mat-card-subtitle>Order ID: {{ order.ID }}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="order-info">
+      <p><strong>User ID:</strong> {{ order.user_id }}</p>
+      <p><strong>Status:</strong> {{ order.status }}</p>
+      <p><strong>Total Cost:</strong> {{ order.total_cost | currency }}</p>
+    </div>
+    
+    <h3>Items</h3>
+    <!-- <mat-list>
+      <mat-list-item *ngFor="let item of order.order_items; let i = index">
+        <div class="item-details"> -->
+          <li *ngFor="let item of order.order_items; let i = index">
+          <p><strong>Toy ID:</strong> {{ item.toy_id }}</p>
+          <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+          <p><strong>Price:</strong> {{ item.price | currency }}</p>
+          </li>
+
+          <!-- Debugging Output (Remove after troubleshooting) -->
+          <!-- <pre>{{ item | json }}</pre> -->
+        <!-- </div>
+      </mat-list-item>
+    </mat-list> -->
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="navigateToEdit()">Edit Order</button>
+    <button mat-button color="warn" (click)="deleteOrder()">Delete Order</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Loading Template -->
+<ng-template #loadingTemplate>
+  <div class="loading-spinner">
+    <mat-spinner></mat-spinner>
+    <p>Loading order details...</p>
+  </div>
+</ng-template>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>

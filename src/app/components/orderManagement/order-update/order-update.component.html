@@ -1,0 +1,29 @@
+<mat-card class="order-update-card" *ngIf="order; else loadingTemplate">
+  <h2 class="mat-card-title">Update Order</h2>
+  <form (ngSubmit)="updateOrder()" class="order-update-form">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="order.status" name="status" required>
+        <mat-option value="pending">Pending</mat-option>
+        <mat-option value="shipped">Shipped</mat-option>
+        <mat-option value="delivered">Delivered</mat-option>
+        <mat-option value="cancelled">Cancelled</mat-option>
+      </mat-select>
+      <mat-error *ngIf="!order.status">Status is required</mat-error>
+    </mat-form-field>
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!order.status">Update Order</button>
+      <button mat-button color="warn" type="button" (click)="navigateToOrderHistory()">Cancel</button>
+    </div>
+  </form>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+</mat-card>
+
+<!-- Loading Template -->
+<ng-template #loadingTemplate>
+  <div class="loading-spinner">
+    <mat-progress-spinner></mat-progress-spinner>
+    <p>Loading order details...</p>
+  </div>
+</ng-template>

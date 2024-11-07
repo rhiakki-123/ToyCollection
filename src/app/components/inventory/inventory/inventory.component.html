@@ -1,0 +1,20 @@
+<h2>Inventory Management</h2>
+<form class="inventory-form">
+  <div class="form-group">
+    <label for="toyId">Toy ID:</label>
+    <input id="toyId" type="number" [(ngModel)]="toyId" name="toyId" required>
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount:</label>
+    <input id="amount" type="number" [(ngModel)]="amount" name="amount" required>
+  </div>
+  <div class="button-group">
+    <button type="button" (click)="addStock()">Add Stock</button>
+    <button type="button" (click)="removeStock()">Remove Stock</button>
+    <button type="button" (click)="getStock()">Check Stock</button>
+  </div>
+</form>
+<div *ngIf="stock !== undefined" class="stock-info">
+  <p><strong>Current Stock:</strong> {{ stock }}</p>
+</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
