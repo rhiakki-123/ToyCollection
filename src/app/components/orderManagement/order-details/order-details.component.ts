@@ -38,16 +38,6 @@ export class OrderDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.order = {
-      ID: 123,
-      user_id: 1,
-      status: 'Shipped',
-      total_cost: 299.99,
-      order_items: [
-        { toy_id: 1, quantity: 2, price: 49.99 },
-        { toy_id: 2, quantity: 1, price: 199.99 }
-      ]
-    };
     const orderId = this.route.snapshot.paramMap.get('order_id');
     if (orderId) {
       this.toyService.getOrder(Number(orderId)).subscribe(
@@ -82,7 +72,7 @@ export class OrderDetailsComponent implements OnInit {
   }
   navigateToEdit() {
     if (this.order) {
-      this.router.navigate(['/orders', this.order.ID, 'edit']);
+      this.router.navigate(['/orders', this.order.ID]);
     }
   }
 }

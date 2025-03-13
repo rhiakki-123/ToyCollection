@@ -20,6 +20,9 @@ export class ToyFormComponent implements OnInit {
   isEditMode: boolean = false;
   toyId: number | null = null;
 
+  //movie: string = 'avengers';
+
+
   constructor(
     private toyService: ToyService,
     private router: Router,
