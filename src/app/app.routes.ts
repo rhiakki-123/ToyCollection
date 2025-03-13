@@ -29,13 +29,14 @@ export const appRoutes: Routes = [
   { path: 'order-details/:order_id', component: OrderDetailsComponent },
   { path: 'order-update/:id', component: OrderUpdateComponent },
   { path: 'order-history', component: OrderHistoryComponent }, 
+ //{ path: 'orders/:order_id', component: OrderUpdateComponent },
   // Default route
   //{ path: '', redirectTo: '/order-history', pathMatch: 'full' },
   // Wildcard route for a 404 page (optional)
   //{ path: '**', redirectTo: '/order-history' }, 
   { path: 'toy-details/:id', component: ToyDetailsComponent },
-  {path : 'logout', component: LogoutComponent} 
-  //{ path: 'logout', redirectTo: '/toys', pathMatch: 'full' },
+ // {path : 'logout', component: LogoutComponent} 
+  { path: 'logout', redirectTo: '/login', pathMatch: 'full' },
  // { path: '', redirectTo: '/toys', pathMatch: 'full' },
  // { path: '**', redirectTo: '/toys', pathMatch: 'full' } // Wildcard route for a 404 page
 ];
